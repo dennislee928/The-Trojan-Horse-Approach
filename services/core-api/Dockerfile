@@ -12,8 +12,9 @@ FROM alpine:3.22
 
 WORKDIR /app
 COPY --from=builder /trojan-core-api /usr/local/bin/trojan-core-api
+RUN addgroup -S trojan && adduser -S trojan -G trojan
+USER trojan
 
 EXPOSE 8080
 
 CMD ["trojan-core-api"]
-

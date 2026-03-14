@@ -12,8 +12,9 @@ COPY apps/web ./apps/web
 
 WORKDIR /app/apps/web
 RUN npm run build
+RUN chown -R node:node /app
 
 EXPOSE 3000
+USER node
 
 CMD ["npm", "run", "start"]
-

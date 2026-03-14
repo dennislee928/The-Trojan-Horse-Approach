@@ -13,6 +13,8 @@ FROM debian:bookworm-slim
 
 WORKDIR /app
 COPY --from=builder /app/target/release/trojan-horse-vault /usr/local/bin/trojan-horse-vault
+RUN useradd --system --create-home --uid 10001 trojan
+USER trojan
 
 EXPOSE 8090
 
