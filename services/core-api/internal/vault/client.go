@@ -84,4 +84,3 @@ func fallback(kind string) store.VaultResult {
 		CipherPreview: fmt.Sprintf("mock_cipher[%s]:4a61736f6e2d7365616c6564", kind),
 	}
 }
-

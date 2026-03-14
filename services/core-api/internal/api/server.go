@@ -55,7 +55,7 @@ func (s *Server) createWillPlan(ctx *gin.Context) {
 		return
 	}
 
-	result := s.vault.SealRecord(ctx, "digital_will", request)
+	result := s.vault.SealRecord(ctx.Request.Context(), "digital_will", request)
 	ctx.JSON(http.StatusOK, s.store.BuildWillPlan(request, result))
 }
 
@@ -78,7 +78,6 @@ func (s *Server) createCapsule(ctx *gin.Context) {
 		return
 	}
 
-	result := s.vault.SealRecord(ctx, "time_capsule", request)
+	result := s.vault.SealRecord(ctx.Request.Context(), "time_capsule", request)
 	ctx.JSON(http.StatusOK, s.store.CreateCapsule(request, result))
 }
-

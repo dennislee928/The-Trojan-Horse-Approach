@@ -12,7 +12,7 @@ import (
 )
 
 type VaultResult struct {
-	Status       string
+	Status        string
 	CipherPreview string
 }
 
@@ -66,13 +66,13 @@ func New() *Store {
 				TrustedContact:   "Jordan Chen",
 			},
 			WillDraft: model.WillDraftSummary{
-				HouseholdsProtected:    42,
+				HouseholdsProtected:     42,
 				BeneficiariesConfigured: 96,
-				VaultStatus:            "AES-256 envelope sealed",
+				VaultStatus:             "AES-256 envelope sealed",
 			},
 			SubscriptionSummary: model.SubscriptionSummary{
-				ActiveServices:          11,
-				MonthlySpend:            167,
+				ActiveServices:           11,
+				MonthlySpend:             167,
 				AnnualSavingsOpportunity: 432,
 			},
 			CapsuleSummary: model.CapsuleSummary{
@@ -184,11 +184,11 @@ func (s *Store) RunSubscriptionScan() model.SubscriptionScanResponse {
 	defer s.mu.Unlock()
 
 	response := model.SubscriptionScanResponse{
-		ScanID:          fmt.Sprintf("scan_%s", uuid.NewString()[:8]),
-		ReceiptsParsed:  24,
-		MonthlySpend:    167,
+		ScanID:           fmt.Sprintf("scan_%s", uuid.NewString()[:8]),
+		ReceiptsParsed:   24,
+		MonthlySpend:     167,
 		PotentialSavings: 36,
-		Subscriptions:   append([]model.Subscription(nil), s.subscriptions...),
+		Subscriptions:    append([]model.Subscription(nil), s.subscriptions...),
 	}
 	response.DeadManSwitch.Status = "Waiting for next app check-in"
 	response.DeadManSwitch.ThresholdDays = 90
@@ -241,4 +241,3 @@ func (s *Store) CreateCapsule(input model.CapsuleRequest, vault VaultResult) mod
 		CipherPreview: vault.CipherPreview,
 	}
 }
-

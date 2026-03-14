@@ -19,14 +19,14 @@ type DeadManSwitch struct {
 }
 
 type WillDraftSummary struct {
-	HouseholdsProtected    int    `json:"householdsProtected"`
-	BeneficiariesConfigured int   `json:"beneficiariesConfigured"`
-	VaultStatus            string `json:"vaultStatus"`
+	HouseholdsProtected     int    `json:"householdsProtected"`
+	BeneficiariesConfigured int    `json:"beneficiariesConfigured"`
+	VaultStatus             string `json:"vaultStatus"`
 }
 
 type SubscriptionSummary struct {
-	ActiveServices          int     `json:"activeServices"`
-	MonthlySpend            float64 `json:"monthlySpend"`
+	ActiveServices           int     `json:"activeServices"`
+	MonthlySpend             float64 `json:"monthlySpend"`
 	AnnualSavingsOpportunity float64 `json:"annualSavingsOpportunity"`
 }
 
@@ -79,15 +79,15 @@ type Subscription struct {
 }
 
 type SubscriptionScanResponse struct {
-	ScanID         string         `json:"scanId"`
-	ReceiptsParsed int            `json:"receiptsParsed"`
-	MonthlySpend   float64        `json:"monthlySpend"`
-	PotentialSavings float64      `json:"potentialSavings"`
-	Subscriptions  []Subscription `json:"subscriptions"`
-	DeadManSwitch  struct {
-		Status       string `json:"status"`
-		ThresholdDays int   `json:"thresholdDays"`
-		TriggerDate  string `json:"triggerDate"`
+	ScanID           string         `json:"scanId"`
+	ReceiptsParsed   int            `json:"receiptsParsed"`
+	MonthlySpend     float64        `json:"monthlySpend"`
+	PotentialSavings float64        `json:"potentialSavings"`
+	Subscriptions    []Subscription `json:"subscriptions"`
+	DeadManSwitch    struct {
+		Status        string `json:"status"`
+		ThresholdDays int    `json:"thresholdDays"`
+		TriggerDate   string `json:"triggerDate"`
 	} `json:"deadManSwitch"`
 }
 
@@ -114,4 +114,3 @@ type CapsuleResponse struct {
 	Manifest      []string `json:"manifest"`
 	CipherPreview string   `json:"cipherPreview"`
 }
-
