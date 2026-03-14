@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_CORE_API_URL: http://core-api:8080
+      NEXT_PUBLIC_VAULT_API_URL: http://vault:8090
+    depends_on:
+      - core-api
+      - vault
+
+  core-api:
+    build:
+      context: .
+      dockerfile: services/core-api/Dockerfile
+    ports:
+      - "8080:8080"
+
+  vault:
+    build:
+      context: .
+      dockerfile: services/vault/Dockerfile
+    ports:
+      - "8090:8090"

@@ -1,0 +1,15 @@
+node_modules/
+.next/
+dist/
+build/
+coverage/
+.turbo/
+.DS_Store
+.env
+.env.local
+tmp/
+bin/
+target/
+Cargo.lock
+*.log
+
