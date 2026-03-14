@@ -15,6 +15,8 @@ Recommended pattern:
 - You control the DNS zone
 - You have the Koyeb CLI installed and authenticated, or access to the Koyeb dashboard
 
+If the CLI is not ready yet, complete [koyeb-cli-setup.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/koyeb-cli-setup.md) first.
+
 ## Recommended domain choice
 
 Use:
@@ -125,6 +127,8 @@ If you use Cloudflare:
 - keep it `DNS only` until Koyeb shows the domain as active and TLS is working
 - only then consider enabling Cloudflare proxy if you really need it
 
+For concrete record examples, use [cloudflare-dns-examples.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/cloudflare-dns-examples.md).
+
 ## Rollback
 
 - remove or detach the custom domain from Koyeb:
@@ -143,4 +147,3 @@ koyeb domains detach "$KOYEB_DOMAIN"
 - you used a `CNAME` for a subdomain
 - you refreshed validation after DNS propagation
 - if TLS is pending, wait a few minutes before retrying
-

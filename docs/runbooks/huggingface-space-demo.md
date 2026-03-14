@@ -26,6 +26,8 @@ This uses `deploy/demo-container/Dockerfile` and exposes one public port through
 - A Hugging Face access token with write permission
 - The secrets checklist completed in [huggingface-space-secrets-checklist.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/huggingface-space-secrets-checklist.md)
 
+If this is your first Space, create the repository first with [huggingface-space-first-repo.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/huggingface-space-first-repo.md).
+
 ## Required local environment variables
 
 - `HF_USERNAME`

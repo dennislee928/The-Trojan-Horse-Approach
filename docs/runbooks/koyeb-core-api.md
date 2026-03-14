@@ -18,6 +18,8 @@ This is the best fit for Koyeb's free single-service model. The Rust vault can s
 - `koyeb` CLI authenticated
 - GitHub repo reachable by Koyeb
 
+If you have not installed the CLI yet, start with [koyeb-cli-setup.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/koyeb-cli-setup.md).
+
 ## Required environment variables
 
 - `KOYEB_APP_NAME`
@@ -62,4 +64,3 @@ Expected result:
 - Koyeb free is best treated as `core-api only` for this repo.
 - If you later deploy `services/vault` elsewhere, set `KOYEB_VAULT_API_URL` and redeploy.
 - For DNS cutover and HTTPS, continue with [koyeb-custom-domain.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/koyeb-custom-domain.md).
-
