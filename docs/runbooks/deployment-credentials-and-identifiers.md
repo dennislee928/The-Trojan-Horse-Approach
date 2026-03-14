@@ -280,6 +280,10 @@ export HF_USERNAME=your-namespace
 export HF_SPACE_NAME=trojan-horse-demo
 ```
 
+Template file in this repo:
+
+- [.env.deploy.example](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/.env.deploy.example)
+
 GitHub Actions:
 
 - `KOYEB_TOKEN`
