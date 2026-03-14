@@ -4,6 +4,9 @@ bootstrap:
 	cd services/vault && cargo check
 
 dev:
+	./scripts/dev.sh
+
+dev-web:
 	npm run dev
 
 test:
@@ -15,4 +18,3 @@ build:
 	npm run build
 	cd services/core-api && go build ./...
 	cd services/vault && cargo build
-
