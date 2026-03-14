@@ -3,11 +3,11 @@ mod crypto;
 use std::{env, net::SocketAddr, sync::Arc};
 
 use axum::{
+    Json, Router,
     extract::State,
     http::StatusCode,
     response::{IntoResponse, Response},
     routing::{get, post},
-    Json, Router,
 };
 use crypto::VaultCrypto;
 use serde::{Deserialize, Serialize};
@@ -103,7 +103,12 @@ async fn main() {
         .route("/health", get(health))
         .route("/api/v1/envelopes", post(create_envelope))
         .route("/api/v1/decrypt", post(decrypt_envelope))
-        .layer(CorsLayer::new().allow_origin(Any).allow_methods(Any).allow_headers(Any))
+        .layer(
+            CorsLayer::new()
+                .allow_origin(Any)
+                .allow_methods(Any)
+                .allow_headers(Any),
+        )
         .with_state(app_state);
 
     let listener = tokio::net::TcpListener::bind(address)
@@ -143,10 +148,9 @@ async fn decrypt_envelope(
     State(state): State<AppState>,
     Json(request): Json<DecryptRequest>,
 ) -> Result<Json<DecryptResponse>, AppError> {
-    let payload =
-        state
-            .vault
-            .decrypt_value(&request.kind, &request.nonce, &request.ciphertext)?;
+    let payload = state
+        .vault
+        .decrypt_value(&request.kind, &request.nonce, &request.ciphertext)?;
 
     Ok(Json(DecryptResponse { payload }))
 }
