@@ -27,6 +27,8 @@ That gives you a safe default:
 
 ## GitHub secrets and variables
 
+For where to obtain each secret and identifier, use [deployment-credentials-and-identifiers.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/deployment-credentials-and-identifiers.md).
+
 ### Koyeb workflow
 
 Required GitHub secrets:

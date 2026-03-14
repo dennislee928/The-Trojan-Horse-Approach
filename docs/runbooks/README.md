@@ -5,6 +5,7 @@
 - [Koyeb custom domain runbook](./koyeb-custom-domain.md)
 - [Cloudflare DNS examples](./cloudflare-dns-examples.md)
 - [Cloudflare DNS visual guide](./cloudflare-dns-visual-guide/README.md)
+- [Deployment credentials and identifiers](./deployment-credentials-and-identifiers.md)
 - [Hugging Face Space first repo setup](./huggingface-space-first-repo.md)
 - [Hugging Face Space demo runbook](./huggingface-space-demo.md)
 - [Hugging Face Space secrets checklist](./huggingface-space-secrets-checklist.md)
