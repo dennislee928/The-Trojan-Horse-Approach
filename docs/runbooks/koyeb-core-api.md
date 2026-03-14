@@ -61,4 +61,5 @@ Expected result:
 
 - Koyeb free is best treated as `core-api only` for this repo.
 - If you later deploy `services/vault` elsewhere, set `KOYEB_VAULT_API_URL` and redeploy.
+- For DNS cutover and HTTPS, continue with [koyeb-custom-domain.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/koyeb-custom-domain.md).
 
