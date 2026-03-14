@@ -8,8 +8,8 @@ coverage/
 .env
 .env.local
 tmp/
+.deploy/
 bin/
 target/
 Cargo.lock
 *.log
-

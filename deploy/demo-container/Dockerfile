@@ -29,8 +29,6 @@ FROM rust:1.92-slim AS vault-builder
 WORKDIR /src
 
 COPY services/vault/Cargo.toml services/vault/Cargo.lock ./
-RUN mkdir src && printf 'fn main() {}\n' > src/main.rs && cargo build --release || true
-
 COPY services/vault/src ./src
 RUN cargo build --release && mkdir -p /out && cp target/release/trojan-horse-vault /out/vault
 
@@ -69,4 +67,3 @@ USER trojan
 EXPOSE 7860
 
 CMD ["/app/start-demo.sh"]
-
