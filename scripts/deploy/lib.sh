@@ -21,6 +21,15 @@ require_env() {
   [[ -n "${!name:-}" ]] || fail "missing required environment variable: $name"
 }
 
+koyeb_cli() {
+  if [[ -n "${KOYEB_TOKEN:-}" ]]; then
+    koyeb --token "${KOYEB_TOKEN}" "$@"
+    return
+  fi
+
+  koyeb "$@"
+}
+
 default_git_branch() {
   git -C "${ROOT_DIR}" rev-parse --abbrev-ref HEAD
 }
@@ -36,4 +45,3 @@ default_git_repo() {
 
   return 1
 }
-

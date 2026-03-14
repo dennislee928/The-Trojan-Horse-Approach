@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980" fill="none">
+  <rect width="1400" height="980" fill="#f4f7fb"/>
+  <rect x="56" y="52" width="1288" height="876" rx="28" fill="#ffffff" stroke="#d8e1ef" stroke-width="2"/>
+  <rect x="56" y="52" width="1288" height="82" rx="28" fill="#f6821f"/>
+  <circle cx="102" cy="94" r="11" fill="#ffd7b0"/>
+  <circle cx="138" cy="94" r="11" fill="#ffd7b0"/>
+  <circle cx="174" cy="94" r="11" fill="#ffd7b0"/>
+  <text x="220" y="103" fill="#fff8f1" font-family="Arial, sans-serif" font-size="28" font-weight="700">Cloudflare DNS - Add record</text>
+  <rect x="106" y="182" width="1188" height="678" rx="24" fill="#fffaf5" stroke="#f3d6bb" stroke-width="2"/>
+  <text x="138" y="238" fill="#3a4a62" font-family="Arial, sans-serif" font-size="30" font-weight="700">Koyeb API subdomain example</text>
+  <text x="138" y="276" fill="#6b7b93" font-family="Arial, sans-serif" font-size="22">Create the record for api.example.com exactly once, then wait for Koyeb to validate TLS.</text>
+  <rect x="138" y="326" width="360" height="112" rx="18" fill="#ffffff" stroke="#d7e0ec" stroke-width="2"/>
+  <text x="166" y="364" fill="#6b7b93" font-family="Arial, sans-serif" font-size="20">Type</text>
+  <text x="166" y="410" fill="#22324a" font-family="Arial, sans-serif" font-size="34" font-weight="700">CNAME</text>
+  <rect x="526" y="326" width="268" height="112" rx="18" fill="#ffffff" stroke="#d7e0ec" stroke-width="2"/>
+  <text x="554" y="364" fill="#6b7b93" font-family="Arial, sans-serif" font-size="20">Name</text>
+  <text x="554" y="410" fill="#22324a" font-family="Arial, sans-serif" font-size="34" font-weight="700">api</text>
+  <rect x="822" y="326" width="440" height="112" rx="18" fill="#ffffff" stroke="#d7e0ec" stroke-width="2"/>
+  <text x="850" y="364" fill="#6b7b93" font-family="Arial, sans-serif" font-size="20">Proxy status</text>
+  <text x="850" y="410" fill="#22324a" font-family="Arial, sans-serif" font-size="34" font-weight="700">DNS only</text>
+  <rect x="138" y="476" width="1124" height="136" rx="18" fill="#ffffff" stroke="#d7e0ec" stroke-width="2"/>
+  <text x="166" y="520" fill="#6b7b93" font-family="Arial, sans-serif" font-size="20">Target</text>
+  <text x="166" y="574" fill="#22324a" font-family="Arial, sans-serif" font-size="32" font-weight="700">your-org-uuid.cname.koyeb.app</text>
+  <rect x="138" y="650" width="280" height="96" rx="18" fill="#ffffff" stroke="#d7e0ec" stroke-width="2"/>
+  <text x="166" y="688" fill="#6b7b93" font-family="Arial, sans-serif" font-size="20">TTL</text>
+  <text x="166" y="726" fill="#22324a" font-family="Arial, sans-serif" font-size="30" font-weight="700">Auto</text>
+  <rect x="898" y="652" width="364" height="92" rx="18" fill="#f6821f"/>
+  <text x="1010" y="709" fill="#ffffff" font-family="Arial, sans-serif" font-size="28" font-weight="700">Save</text>
+  <rect x="456" y="672" width="390" height="72" rx="16" fill="#ebf5ff" stroke="#9ec7f0" stroke-width="2"/>
+  <text x="484" y="715" fill="#245a93" font-family="Arial, sans-serif" font-size="24" font-weight="700">Leave proxy off until Koyeb TLS is active</text>
+  <rect x="138" y="788" width="1124" height="46" rx="12" fill="#fff1e5"/>
+  <text x="166" y="819" fill="#995200" font-family="Arial, sans-serif" font-size="22" font-weight="700">Tip: copy the target hostname from the Koyeb domain screen instead of typing it by hand.</text>
+</svg>

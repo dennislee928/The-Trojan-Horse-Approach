@@ -14,9 +14,9 @@ KOYEB_INSTANCE_TYPE="${KOYEB_INSTANCE_TYPE:-nano}"
 
 [[ -n "${KOYEB_GIT_REPO}" ]] || fail "set KOYEB_GIT_REPO, for example github.com/owner/repo"
 
-if ! koyeb apps describe "${KOYEB_APP_NAME}" >/dev/null 2>&1; then
+if ! koyeb_cli apps describe "${KOYEB_APP_NAME}" >/dev/null 2>&1; then
   info "creating Koyeb app ${KOYEB_APP_NAME}"
-  koyeb apps create "${KOYEB_APP_NAME}" >/dev/null
+  koyeb_cli apps create "${KOYEB_APP_NAME}" >/dev/null
 fi
 
 SERVICE_REF="${KOYEB_APP_NAME}/${KOYEB_SERVICE_NAME}"
@@ -26,9 +26,9 @@ if [[ -n "${KOYEB_VAULT_API_URL:-}" ]]; then
   ENV_ARGS+=(--env "VAULT_API_URL=${KOYEB_VAULT_API_URL}")
 fi
 
-if koyeb services describe "${SERVICE_REF}" >/dev/null 2>&1; then
+if koyeb_cli services describe "${SERVICE_REF}" >/dev/null 2>&1; then
   info "updating Koyeb service ${SERVICE_REF}"
-  koyeb services update "${SERVICE_REF}" \
+  koyeb_cli services update "${SERVICE_REF}" \
     --git "${KOYEB_GIT_REPO}" \
     --git-branch "${KOYEB_GIT_BRANCH}" \
     --git-builder docker \
@@ -41,7 +41,7 @@ if koyeb services describe "${SERVICE_REF}" >/dev/null 2>&1; then
     "${ENV_ARGS[@]}"
 else
   info "creating Koyeb service ${SERVICE_REF}"
-  koyeb services create "${KOYEB_SERVICE_NAME}" \
+  koyeb_cli services create "${KOYEB_SERVICE_NAME}" \
     --app "${KOYEB_APP_NAME}" \
     --git "${KOYEB_GIT_REPO}" \
     --git-branch "${KOYEB_GIT_BRANCH}" \
@@ -56,4 +56,3 @@ else
 fi
 
 info "done"
-

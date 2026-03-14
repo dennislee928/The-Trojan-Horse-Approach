@@ -1,0 +1,68 @@
+name: Deploy Koyeb Core API
+
+on:
+  workflow_dispatch:
+    inputs:
+      git_ref:
+        description: Git ref to deploy
+        required: false
+        default: main
+  workflow_run:
+    workflows:
+      - CI
+    branches:
+      - main
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-koyeb-core-api
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy core-api to Koyeb
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
+    runs-on: ubuntu-latest
+    env:
+      KOYEB_APP_NAME: ${{ secrets.KOYEB_APP_NAME }}
+      KOYEB_DOMAIN: ${{ secrets.KOYEB_DOMAIN }}
+      KOYEB_GIT_BRANCH: ${{ inputs.git_ref || github.event.workflow_run.head_branch || github.ref_name }}
+      KOYEB_INSTANCE_TYPE: ${{ vars.KOYEB_INSTANCE_TYPE }}
+      KOYEB_REGION: ${{ vars.KOYEB_REGION }}
+      KOYEB_SERVICE_NAME: ${{ vars.KOYEB_SERVICE_NAME }}
+      KOYEB_TOKEN: ${{ secrets.KOYEB_TOKEN }}
+      KOYEB_VAULT_API_URL: ${{ vars.KOYEB_VAULT_API_URL }}
+    steps:
+      - name: Validate required secrets
+        run: |
+          [[ -n "${KOYEB_TOKEN}" ]] || { echo "::error::Missing KOYEB_TOKEN"; exit 1; }
+          [[ -n "${KOYEB_APP_NAME}" ]] || { echo "::error::Missing KOYEB_APP_NAME"; exit 1; }
+
+      - name: Check out source
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.git_ref || github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Install Koyeb CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/koyeb/koyeb-cli/master/install.sh | sh
+          echo "${HOME}/.koyeb/bin" >> "${GITHUB_PATH}"
+
+      - name: Show Koyeb CLI version
+        run: koyeb version
+
+      - name: Deploy core-api service
+        run: ./scripts/deploy/koyeb-core-api.sh
+
+      - name: Refresh custom domain
+        if: env.KOYEB_DOMAIN != ''
+        env:
+          KOYEB_DOMAIN_REFRESH: "1"
+        run: ./scripts/deploy/koyeb-custom-domain.sh

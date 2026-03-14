@@ -10,6 +10,8 @@ Show the exact DNS shapes to use in Cloudflare when pointing traffic to:
 
 This runbook is written as a text-first visual guide so it is easy to follow inside the Cloudflare dashboard.
 
+For screenshot-style field maps, continue with [cloudflare-dns-visual-guide/README.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/cloudflare-dns-visual-guide/README.md).
+
 ## Recommended pattern for this repo
 
 For the Koyeb-hosted API, use:
@@ -179,4 +181,3 @@ example.com -> https://www.example.com/${1}
 This runbook is designed to be used with:
 
 - [koyeb-custom-domain.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/koyeb-custom-domain.md)
-

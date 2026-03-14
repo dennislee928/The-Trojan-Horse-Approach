@@ -85,3 +85,4 @@ After the Space finishes building:
 - This is the best free public demo target for the current repo.
 - It is still a demo deployment: if the Space sleeps, cold start is expected.
 - For production-like reliability, move the API out to a non-sleeping service later.
+- For GitHub-side automation, use [github-actions-auto-deploy.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/github-actions-auto-deploy.md).

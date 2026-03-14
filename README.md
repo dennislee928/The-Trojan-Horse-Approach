@@ -30,8 +30,13 @@ make dev
 
 Then open `http://localhost:3000`.
 
+## Deployment docs
+
+- Runbooks index: [docs/runbooks/README.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/README.md)
+- GitHub Actions auto-deploy: [docs/runbooks/github-actions-auto-deploy.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/github-actions-auto-deploy.md)
+- Cloudflare DNS visual guide: [docs/runbooks/cloudflare-dns-visual-guide/README.md](/Users/dennis_leedennis_lee/Documents/GitHub/The Trojan Horse Approach/docs/runbooks/cloudflare-dns-visual-guide/README.md)
+
 ## Notes
 
 - The implementation favors a realistic MVP over production-hardening.
 - Payment rails, legal-signature enforcement, email provider auth, and real beneficiary delivery are stubbed behind safe local mocks.
-

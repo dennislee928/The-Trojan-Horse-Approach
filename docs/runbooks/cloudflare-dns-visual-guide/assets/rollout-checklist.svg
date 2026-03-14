@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980" fill="none">
+  <rect width="1400" height="980" fill="#f4f7fb"/>
+  <rect x="72" y="64" width="1256" height="852" rx="28" fill="#ffffff" stroke="#d8e1ef" stroke-width="2"/>
+  <text x="122" y="148" fill="#22324a" font-family="Arial, sans-serif" font-size="42" font-weight="700">Cloudflare + Koyeb rollout checklist</text>
+  <text x="122" y="194" fill="#6b7b93" font-family="Arial, sans-serif" font-size="24">Follow this order to keep Koyeb validation simple and avoid premature proxy issues.</text>
+  <rect x="120" y="254" width="1160" height="564" rx="24" fill="#fffaf5" stroke="#f3d6bb" stroke-width="2"/>
+  <line x1="274" y1="332" x2="274" y2="748" stroke="#f6821f" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="274" cy="354" r="22" fill="#f6821f"/>
+  <circle cx="274" cy="452" r="22" fill="#f6821f"/>
+  <circle cx="274" cy="550" r="22" fill="#f6821f"/>
+  <circle cx="274" cy="648" r="22" fill="#f6821f"/>
+  <circle cx="274" cy="746" r="22" fill="#f6821f"/>
+  <text x="266" y="362" fill="#ffffff" font-family="Arial, sans-serif" font-size="20" font-weight="700">1</text>
+  <text x="266" y="460" fill="#ffffff" font-family="Arial, sans-serif" font-size="20" font-weight="700">2</text>
+  <text x="266" y="558" fill="#ffffff" font-family="Arial, sans-serif" font-size="20" font-weight="700">3</text>
+  <text x="266" y="656" fill="#ffffff" font-family="Arial, sans-serif" font-size="20" font-weight="700">4</text>
+  <text x="266" y="754" fill="#ffffff" font-family="Arial, sans-serif" font-size="20" font-weight="700">5</text>
+  <text x="336" y="364" fill="#22324a" font-family="Arial, sans-serif" font-size="30" font-weight="700">Create the custom domain in Koyeb</text>
+  <text x="336" y="400" fill="#4d5f79" font-family="Arial, sans-serif" font-size="22">Copy the exact CNAME target from the Koyeb domain details page.</text>
+  <text x="336" y="462" fill="#22324a" font-family="Arial, sans-serif" font-size="30" font-weight="700">Add the Cloudflare CNAME as DNS only</text>
+  <text x="336" y="498" fill="#4d5f79" font-family="Arial, sans-serif" font-size="22">Keep the orange cloud off during the first validation pass.</text>
+  <text x="336" y="560" fill="#22324a" font-family="Arial, sans-serif" font-size="30" font-weight="700">Wait for Koyeb TLS to become active</text>
+  <text x="336" y="596" fill="#4d5f79" font-family="Arial, sans-serif" font-size="22">Do not cut users over until HTTPS is ready on the custom domain.</text>
+  <text x="336" y="658" fill="#22324a" font-family="Arial, sans-serif" font-size="30" font-weight="700">Verify health endpoints</text>
+  <text x="336" y="694" fill="#4d5f79" font-family="Arial, sans-serif" font-size="22">Test /health and /api/dashboard from the custom hostname.</text>
+  <text x="336" y="756" fill="#22324a" font-family="Arial, sans-serif" font-size="30" font-weight="700">Enable Cloudflare proxy only if needed</text>
+  <text x="336" y="792" fill="#4d5f79" font-family="Arial, sans-serif" font-size="22">Caching or WAF can come later once the origin path is known-good.</text>
+  <rect x="880" y="322" width="348" height="424" rx="24" fill="#ebf5ff" stroke="#9ec7f0" stroke-width="2"/>
+  <text x="912" y="374" fill="#245a93" font-family="Arial, sans-serif" font-size="28" font-weight="700">Verification commands</text>
+  <text x="912" y="434" fill="#245a93" font-family="Courier New, monospace" font-size="20">curl -I https://api.example.com/health</text>
+  <text x="912" y="482" fill="#245a93" font-family="Courier New, monospace" font-size="20">curl -fsSL https://api.example.com/api/dashboard</text>
+  <text x="912" y="560" fill="#245a93" font-family="Arial, sans-serif" font-size="24" font-weight="700">Healthy result</text>
+  <text x="912" y="602" fill="#245a93" font-family="Arial, sans-serif" font-size="20">- HTTPS responds normally</text>
+  <text x="912" y="636" fill="#245a93" font-family="Arial, sans-serif" font-size="20">- /health returns 200</text>
+  <text x="912" y="670" fill="#245a93" font-family="Arial, sans-serif" font-size="20">- dashboard JSON loads</text>
+  <rect x="120" y="848" width="1160" height="36" rx="12" fill="#fff1e5"/>
+  <text x="148" y="872" fill="#995200" font-family="Arial, sans-serif" font-size="20" font-weight="700">Most cutover failures come from using the wrong record type or enabling the proxy before Koyeb finishes validation.</text>
+</svg>

@@ -1,0 +1,51 @@
+name: Deploy Hugging Face Space Demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      git_ref:
+        description: Git ref to deploy
+        required: false
+        default: main
+  workflow_run:
+    workflows:
+      - CI
+    branches:
+      - main
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-huggingface-space
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Push demo bundle to Hugging Face Space
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
+    runs-on: ubuntu-latest
+    env:
+      HF_SPACE_NAME: ${{ secrets.HF_SPACE_NAME }}
+      HF_SPACE_TITLE: ${{ vars.HF_SPACE_TITLE }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      HF_USERNAME: ${{ secrets.HF_USERNAME }}
+    steps:
+      - name: Validate required secrets
+        run: |
+          [[ -n "${HF_TOKEN}" ]] || { echo "::error::Missing HF_TOKEN"; exit 1; }
+          [[ -n "${HF_USERNAME}" ]] || { echo "::error::Missing HF_USERNAME"; exit 1; }
+          [[ -n "${HF_SPACE_NAME}" ]] || { echo "::error::Missing HF_SPACE_NAME"; exit 1; }
+
+      - name: Check out source
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.git_ref || github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Push bundle to Hugging Face Space
+        run: ./scripts/deploy/huggingface-space.sh
